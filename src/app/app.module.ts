@@ -7,11 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-
 import 'hammerjs';
+
 import { MenuComponent } from './components/menu/menu.component';
 import { DishDetailComponent } from './components/dish-detail/dish-detail.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -19,6 +18,11 @@ import { FooterComponent } from './components/footer/footer.component'
 
 import { DishService } from './services/dish.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,10 +31,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DishDetailComponent,
     HeaderComponent,
     FooterComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -40,6 +46,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatButtonModule,
     MatCardModule,
     FontAwesomeModule,
+    AppRoutingModule,
   ],
   providers: [
     DishService,
