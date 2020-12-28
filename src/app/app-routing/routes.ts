@@ -4,7 +4,7 @@ import { MenuComponent } from '../components/menu/menu.component';
 import { HomeComponent } from '../components/home/home.component';
 import { AboutComponent } from '../components/about/about.component';
 import { ContactComponent } from '../components/contact/contact.component';
-import {DishDetailComponent} from '../components/dish-detail/dish-detail.component';
+import { DishDetailComponent } from '../components/dish-detail/dish-detail.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},

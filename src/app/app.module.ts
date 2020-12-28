@@ -26,7 +26,9 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { LoginComponent } from './components/login/login.component';
 
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     HomeComponent,
     AboutComponent,
     ContactComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,8 +51,12 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     FlexLayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
     FontAwesomeModule,
     AppRoutingModule,
+  ],
+  entryComponents: [
+    LoginComponent //allows us to us login component as an overlay
   ],
   providers: [
     DishService,
