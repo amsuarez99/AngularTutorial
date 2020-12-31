@@ -12,8 +12,8 @@
       <mat-error *ngIf="username.errors?.required">Username is required</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password" #password="ngModel" required>
-      <mat-error *ngIf="password.errors?.required">Password is required</mat-error>
+      <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password" #pwd="ngModel" required>
+      <mat-error *ngIf="pwd.errors?.required">Password is required</mat-error>
     </mat-form-field>
     <mat-checkbox [(ngModel)]="user.remember" name="remember">
       Remember me
