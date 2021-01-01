@@ -10,15 +10,21 @@ export class DishService {
   constructor() { }
 
   public getDishes(): Promise<Dish[]> {
-    return Promise.resolve(DISHES);
+    return new Promise( resolve => {
+      setTimeout(() => resolve(DISHES), 2000);
+    });
   }
 
   public getDish(id: string): Promise<Dish> {
-    return Promise.resolve( DISHES.filter((dish) => dish.id === id)[0] );
+    return new Promise( resolve => {
+      setTimeout(() => resolve( DISHES.filter((dish) => dish.id === id)[0] ), 2000);
+    });
   }
   
   public getFeaturedDish(): Promise<Dish> {
-    return Promise.resolve(DISHES.filter((dish) => dish.featured)[0]);
+    return new Promise( resolve => {
+      setTimeout(() => resolve(DISHES.filter((dish) => dish.featured)[0]), 2000);
+    }); 
   }
   
 }

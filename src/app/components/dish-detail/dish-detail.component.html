@@ -4,16 +4,16 @@
     fxLayout.xs="column"
     fxLayoutAlign.gt-md="space-around center"
     fxLayoutGap="10px" 
-    fxLayoutGap.xs="0">
+    fxLayoutGap.xs="0" *ngIf="dish">
     <div fxFlex="40">    
         <div fxFlex>
             <mat-card>
                 <mat-card-header>
                     <mat-card-title>
-                        <h3>{{dish.name | uppercase}}</h3>
+                        <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
                     </mat-card-title>
                 </mat-card-header>
-                <img mat-card-image src="{{dish.image}}" alt="{{dish.name}}">
+                <img mat-card-image [src]="dish.image" [alt]="dish.name">
 
                 <mat-card-content>
                     <p>{{dish.description}}</p>
@@ -39,8 +39,6 @@
                 <p matLine>
                     {{dishdetail.rating}} Starts <br>
                 </p>
-                <!-- Task 3:
-                3.2 Display the date of the comment using the Angular date pipe. -->   
                 <p matLine>
                     -- {{dishdetail.author}} {{dishdetail.date | date}}
                 </p>
@@ -49,3 +47,7 @@
     </div>
 
 </div>
+<div fxFlex [hidden]="dish">
+  <mat-spinner></mat-spinner> <h4>Loading . . . Please Wait</h4>
+</div>
+
