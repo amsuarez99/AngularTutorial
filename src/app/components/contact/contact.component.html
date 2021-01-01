@@ -42,7 +42,7 @@
       <p>
         <mat-form-field class="half-width">
           <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
-          <mat-error *ngIf="feedbackForm.get('firstname')?.hasError('required') && feedbackForm.get('firstname')?.touched">First name is required</mat-error>
+          <mat-error *ngIf="feedbackForm.get('firstname')?.errors?.required && feedbackForm.get('firstname')?.touched">First name is required</mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
           <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
@@ -78,7 +78,7 @@
           </textarea>
         </mat-form-field>
         </p>
-        <button class="background-primary text-floral-white" type="submit" mat-button [disabled]="feedbackForm.invalid">Submit</button>
+        <button class="background-primary text-floral-white" type="submit" mat-button [disabled]="!feedbackForm.invalid">Submit</button>
     </form>
   </div>
 </div>

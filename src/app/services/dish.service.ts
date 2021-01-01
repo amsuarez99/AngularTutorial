@@ -9,16 +9,16 @@ export class DishService {
 
   constructor() { }
 
-  public getDishes(): Dish[] {
-    return DISHES;
+  public getDishes(): Promise<Dish[]> {
+    return Promise.resolve(DISHES);
   }
 
-  public getDish(id: string): Dish {
-    return DISHES.filter((dish) => dish.id === id)[0];
+  public getDish(id: string): Promise<Dish> {
+    return Promise.resolve( DISHES.filter((dish) => dish.id === id)[0] );
   }
   
-  public getFeaturedDish(): Dish {
-    return DISHES.filter((dish) => dish.featured)[0]
+  public getFeaturedDish(): Promise<Dish> {
+    return Promise.resolve(DISHES.filter((dish) => dish.featured)[0]);
   }
   
 }
