@@ -6,7 +6,6 @@
     fxLayoutGap="10px" 
     fxLayoutGap.xs="0" *ngIf="dish">
     <div fxFlex="40">    
-        <div fxFlex>
             <mat-card>
                 <mat-card-header>
                     <mat-card-title>
@@ -29,24 +28,46 @@
                 </mat-card-actions>
 
             </mat-card>
-        </div>
     </div>
 
     <div fxFlex="40">
-        <mat-list fxFlex>
-            <h2>Comments</h2>
+        <h2>Comments</h2>
+        <mat-list>
             <mat-list-item *ngFor="let dishdetail of dish.comments">
                 <p matLine>
                     {{dishdetail.comment}}<br>
                 </p>
                 <p matLine>
-                    {{dishdetail.rating}} Starts <br>
+                    {{dishdetail.rating}} Stars <br>
                 </p>
                 <p matLine>
                     -- {{dishdetail.author}} {{dishdetail.date | date}}
                 </p>
             </mat-list-item>
+            <mat-list-item *ngIf="commentForm && commentForm.dirty">
+                <p matLine>
+                    {{commentForm.get('comment')!.value}}<br>
+                </p>
+                <p matLine>
+                    {{commentForm.get('rating')!.value}} Stars <br>
+                </p>
+                <p matLine>
+                    -- {{ commentForm.get('author')!.value }}
+                </p>
+            </mat-list-item>
         </mat-list> 
+        <form novalidate [formGroup]="commentForm" #fform="ngForm" fxLayout="row wrap" (ngSubmit)="onSubmit()" >
+          <mat-form-field fxFlex="grow">
+            <input matInput formControlName="author" placeholder="Name" minlength="2" type="text" required>
+            <mat-error *ngIf="formErrors.author"> {{ formErrors.author }}</mat-error>
+          </mat-form-field>
+          <mat-form-field fxFlex="grow">
+            <textarea matInput formControlName="comment" placeholder="Your comment" rows ="12" required></textarea>
+            <mat-error *ngIf="formErrors.comment"> {{ formErrors.comment }}</mat-error>
+          </mat-form-field>
+            <mat-slider fxFlex="grow" thumbLabel tickInterval="1" min="0" max="5" step="1" value="5" formControlName="rating"></mat-slider>
+        <button class="background-primary text-floral-white" type="submit" mat-button [disabled]="commentForm.invalid">Post Comment</button>
+        </form>
     </div>
 
 </div>
