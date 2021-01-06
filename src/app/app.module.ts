@@ -29,6 +29,7 @@ import { FooterComponent } from './components/footer/footer.component'
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './components/home/home.component';
@@ -43,6 +44,7 @@ import { baseURL } from './shared/baseurl';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { MatSelectModule } from '@angular/material/select';
     AboutComponent,
     ContactComponent,
     LoginComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +91,7 @@ import { MatSelectModule } from '@angular/material/select';
     DishService,
     PromotionService,
     LeaderService,
+    ProcessHTTPMsgService,
     { provide: 'baseURL', useValue: baseURL } ,
   ],
   bootstrap: [AppComponent],
