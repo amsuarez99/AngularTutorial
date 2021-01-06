@@ -12,7 +12,7 @@
                         <h3>{{dish.name | uppercase}}</h3>
                     </mat-card-title>
                 </mat-card-header>
-                <img mat-card-image [src]="dish.image" [alt]="dish.name">
+                <img mat-card-image src="{{baseURL + dish.image }}" [alt]="dish.name">
 
                 <mat-card-content>
                     <p>{{dish.description}}</p>
@@ -33,26 +33,23 @@
     <div fxFlex="40">
         <h2>Comments</h2>
         <mat-list>
-            <mat-list-item *ngFor="let dishdetail of dish.comments">
-                <p matLine>
-                    {{dishdetail.comment}}<br>
-                </p>
-                <p matLine>
-                    {{dishdetail.rating}} Stars <br>
-                </p>
-                <p matLine>
-                    -- {{dishdetail.author}} {{dishdetail.date | date}}
-                </p>
+            <mat-list-item *ngFor="let comment of dish.comments">
+              <h4 matLine> {{comment.comment}} </h4>
+              <p matLine> {{comment.rating}} Stars</p>
+              <p matLine>
+                <span> -- {{comment.author}} {{comment.date | date }}</span>
+              </p>
+
             </mat-list-item>
-            <mat-list-item *ngIf="commentForm && commentForm.dirty">
+            <mat-list-item *ngIf="commentForm && commentForm.valid">
                 <p matLine>
-                    {{commentForm.get('comment')!.value}}<br>
+                    {{commentForm.value.comment}}<br>
                 </p>
                 <p matLine>
-                    {{commentForm.get('rating')!.value}} Stars <br>
+                    {{commentForm.value.rating}} Stars <br>
                 </p>
                 <p matLine>
-                    -- {{ commentForm.get('author')!.value }}
+                    -- {{ commentForm.value.author }}
                 </p>
             </mat-list-item>
         </mat-list> 

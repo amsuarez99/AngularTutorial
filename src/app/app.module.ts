@@ -37,6 +37,8 @@ import { ContactComponent } from './components/contact/contact.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { baseURL } from './shared/baseurl';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -77,6 +79,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
+    HttpClientModule,
   ],
   entryComponents: [
     LoginComponent //allows us to us login component as an overlay. to open a component from another component
@@ -85,6 +88,7 @@ import { MatSelectModule } from '@angular/material/select';
     DishService,
     PromotionService,
     LeaderService,
+    { provide: 'baseURL', useValue: baseURL } ,
   ],
   bootstrap: [AppComponent],
 })
