@@ -29,6 +29,7 @@ import { FooterComponent } from './components/footer/footer.component'
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { FeedbackService } from './services/feedback.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -90,6 +91,7 @@ import { HighlightDirective } from './directives/highlight.directive';
   providers: [
     DishService,
     PromotionService,
+    FeedbackService,
     LeaderService,
     ProcessHTTPMsgService,
     { provide: 'baseURL', useValue: baseURL } ,

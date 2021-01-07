@@ -48,7 +48,7 @@ export function expand(){
         transform: 'translateY(-50%)',
         opacity: 0
       }),
-      animate('200ms ease-in', style({
+      animate('400ms ease-in', style({
         opacity: 1,
         transform: 'translateX(0)'
       }))
