@@ -8,9 +8,9 @@
     </div>
   </div>
 
-  <div fxFlex *ngIf="dishes">
+  <div fxFlex *ngIf="dishes" [@expand]>
     <mat-grid-list cols="2" gutterSize="0.5em" rowHeight="200px">
-      <mat-grid-tile appHighlight routerLink="/dishdetail/{{dish.id}}" *ngFor="let dish of dishes">
+      <mat-grid-tile routerLink="/dishdetail/{{dish.id}}" *ngFor="let dish of dishes" appHighlight>
         <img height="200px" src="{{ baseURL + dish.image }}" alt={{dish.name}}>
         <mat-grid-tile-footer>
           <h1> {{dish.name | uppercase}} </h1>    
